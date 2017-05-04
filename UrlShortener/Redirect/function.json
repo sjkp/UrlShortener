@@ -1,0 +1,27 @@
+﻿{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "redirect/{shortCode}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "table",
+      "name": "shortKeys",
+      "tableName": "ShortKeys",
+      "partitionKey": "{shortCode}",
+      "rowKey": "A",
+      "take": 50,
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}

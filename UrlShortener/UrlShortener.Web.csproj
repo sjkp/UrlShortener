@@ -84,6 +84,8 @@
     <Content Include="Redirect\sample.dat" />
     <None Include="Properties\PublishProfiles\sjkpshorturl - Web Deploy.pubxml" />
     <Content Include="proxies.json" />
+    <None Include="Properties\PublishProfiles\testshortcode - Web Deploy.pubxml" />
+    <Content Include="shortcode.csx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

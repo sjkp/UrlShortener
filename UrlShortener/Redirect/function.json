@@ -21,6 +21,13 @@
       "take": 50,
       "connection": "AzureWebJobsStorage",
       "direction": "in"
+    },
+    {
+      "type": "table",
+      "name": "analytics",
+      "tableName": "Analytics",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
     }
   ],
   "disabled": false

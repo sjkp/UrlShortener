@@ -10,10 +10,16 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ShortK
     {
         PartitionKey = shortCode,
         RowKey = Guid.NewGuid().ToString(),
-        Url = shortKeys.Url,
+        Url = shortKeys?.Url,
         UserAgent = string.Join(",", req.Headers.GetValues("User-Agent")),
         ClientIp = GetUserIp(req)
     });
+    if (shortKeys == null)
+    {
+        var res404 = req.CreateResponse(HttpStatusCode.NotFound);
+        return res404;
+    }
+
     log.Info(string.Join(",", req.Headers.GetValues("X-Forwarded-For")));
     var res = req.CreateResponse(HttpStatusCode.Redirect);
     res.Headers.Add("Location", shortKeys.Url);
